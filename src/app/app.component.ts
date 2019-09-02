@@ -10,7 +10,7 @@ import { Territory } from './models/territory';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ubigeo';
+  title = 'Ubigeos';
   departamentos: Territory[];
   provincias: Territory[];
   distritos: Territory[];
@@ -28,7 +28,6 @@ export class AppComponent {
       this.departamentos = departamentos;
       this.provincias = provincias;
       this.distritos = distritos;
-      console.log('{ departamentos, provincias, distritos }:', { departamentos, provincias, distritos })
       }, 
       error => {
         console.error(error);
