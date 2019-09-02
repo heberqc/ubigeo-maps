@@ -2,6 +2,11 @@
   <header>
     {{title}}
   </header>
+  <app-territory-selection
+    [departamentos]="departamentos"
+    [provincias]="provincias"
+    [distritos]="distritos"
+  ></app-territory-selection>
   <app-territory-chart [territory]="departamentos"></app-territory-chart>
   <h2>Provincias</h2>
   <app-territory-chart [territory]="provincias"></app-territory-chart>
