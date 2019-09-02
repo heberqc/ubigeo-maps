@@ -2,21 +2,21 @@
   <label>
     <span>Departamento:</span>
     <select (change)="onDepartamento($event.target.value)">
-      <option disabled selected value> -- Selecciona un departamento -- </option>
+      <option disabled selected value> - Departamento - </option>
       <option *ngFor="let dep of departamentos" [value]="dep.name">{{dep.name}}</option>
     </select>
   </label>
   <label>
     <span>Provincia:</span>
     <select (change)="onProvincia($event.target.value)">
-      <option disabled selected value> -- Selecciona una provincia -- </option>
+      <option disabled selected value> - Provincia - </option>
       <option *ngFor="let prov of filteredProvincias()" [value]="prov.name">{{prov.name}}</option>
     </select>
   </label>
   <label>
     <span>Distrito:</span>
     <select (change)="onDistrito($event.target.value)">
-      <option disabled selected value> -- Selecciona un distrito -- </option>
+      <option disabled selected value> - Distrito - </option>
       <option *ngFor="let dist of filteredDistritos()" [value]="dist.name">{{dist.name}}</option>
     </select>
   </label>

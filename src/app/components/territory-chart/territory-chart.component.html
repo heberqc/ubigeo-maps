@@ -1,18 +1,20 @@
-<table *ngIf="territory">
-  <thead>
-    <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Parent Code</th>
-      <th>Parent Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let terr of territory">
-      <td>{{terr.code}}</td>
-      <td>{{terr.name}}</td>
-      <td>{{terr.parentCode}}</td>
-      <td>{{terr.parentName}}</td>
-    </tr>
-  </tbody>
-</table>
+<div>
+  <table *ngIf="territory">
+    <thead>
+      <tr>
+        <th>CÓDIGO</th>
+        <th>NOMBRE</th>
+        <th>CÓDIGO PADRE</th>
+        <th>NOMBRE PADRE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let terr of territory">
+        <td>{{terr.code}}</td>
+        <td>{{terr.name}}</td>
+        <td>{{terr.parentCode}}</td>
+        <td>{{terr.parentName}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

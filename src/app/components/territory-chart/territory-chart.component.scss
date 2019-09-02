@@ -1,16 +1,37 @@
-table, td, th {
-  border: 1px solid black;
+div {
+  overflow-x: auto;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 8px 0;
+    max-width: 100%;
+
+    &, td, th {
+      border: 1px solid black;
+    }
+
+    td, th {
+      text-align: center;
+      padding: 2px 4px;
+    }
+
+    th {
+      background-color: #00796b;
+      color: #fff;
+      font-weight: 400;
+    }
+
+    tr:nth-child(2n+1 ) {
+      background-color: #b2dfdb;
+    }
+
+    tr:hover {
+      background-color: #4db6ac;
+    }
+  }
 }
 
-table {
-  border-collapse: collapse;
-}
 
-td, th {
-  text-align: center;
-  padding: 2px 4px;
-}
 
-table {
-  margin: 8px;
-}
+

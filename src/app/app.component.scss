@@ -13,12 +13,13 @@ header {
   flex-wrap: wrap;
 
   .mapInfo {
-    min-width: 400px;
+    max-width: 100%;
     padding: 0 4px;
   }
 
   #map {
-    min-width: 400px;
+    min-width: 33%;
+    max-width: 100%;
     flex-grow: 1;
     height: 100%;
     min-height: 400px;
