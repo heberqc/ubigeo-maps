@@ -27,13 +27,11 @@ export class TerritorySelectionComponent implements OnInit {
   onDepartamento(depName: string): void {
     this.departamento = depName;
     this.territoryInfo.emit({ address: `Perú ${depName}`, zoom: 10 });
-    console.log('this.departamento:', this.departamento);
   }
 
   onProvincia(provName: string): void {
     this.provincia = provName;
     this.territoryInfo.emit({ address: `Perú ${this.departamento} ${provName}`, zoom: 11 });
-    console.log('this.provincia:', this.provincia);
   }
 
   onDistrito(disName: string): void {
