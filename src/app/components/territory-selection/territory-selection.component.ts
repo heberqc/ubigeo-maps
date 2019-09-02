@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Territory } from '../../models/territory';
 
@@ -11,6 +11,7 @@ export class TerritorySelectionComponent implements OnInit {
   @Input('departamentos') departamentos: Territory[];
   @Input('provincias') provincias: Territory[];
   @Input('distritos') distritos: Territory[];
+  @Output('territoryInfo') territoryInfo: EventEmitter<any> = new EventEmitter();  
 
   departamento: string;
   provincia: string;
@@ -23,24 +24,35 @@ export class TerritorySelectionComponent implements OnInit {
   ngOnInit() {
   }
 
-  onDepartamento(territorio: Territory): void {
-    this.departamento = territorio.name;
+  onDepartamento(depName: string): void {
+    this.departamento = depName;
+    this.territoryInfo.emit({ address: `Perú ${depName}`, zoom: 10 });
+    console.log('this.departamento:', this.departamento);
   }
-  
-  onProvincia(territorio: Territory): void {
-    this.provincia = territorio.name;
+
+  onProvincia(provName: string): void {
+    this.provincia = provName;
+    this.territoryInfo.emit({ address: `Perú ${this.departamento} ${provName}`, zoom: 11 });
+    console.log('this.provincia:', this.provincia);
   }
-  
-  onDistrito(territorio: Territory): void {
-    console.log(`${this.departamento} ${this.provincia} ${territorio.name}`);
+
+  onDistrito(disName: string): void {
+    console.log(`${this.departamento} ${this.provincia} ${disName}`);
+    this.territoryInfo.emit({ address: `Perú ${this.departamento} ${this.provincia} ${disName}`, zoom: 15 });
   }
 
   filteredProvincias(): Territory[] {
-    return this.provincias.filter((prov: Territory) => prov.parentName === this.departamento);
+    if (this.departamento) {
+      return this.provincias.filter((prov: Territory) => prov.parentName === this.departamento);
+    }
+    return [];
   }
 
   filteredDistritos(): Territory[] {
-    return this.distritos.filter((dist: Territory) => dist.parentName === this.provincia);
+    if (this.provincia) {
+      return this.distritos.filter((dist: Territory) => dist.parentName === this.provincia);
+    }
+    return [];
   }
 
 }

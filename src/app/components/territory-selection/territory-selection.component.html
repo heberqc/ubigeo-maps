@@ -1,23 +1,23 @@
 <div>
   <label>
     <span>Departamento:</span>
-    <select>
+    <select (change)="onDepartamento($event.target.value)">
       <option disabled selected value> -- Selecciona un departamento -- </option>
-      <option *ngFor="let dep of departamentos" (click)="onDepartamento(dep)">{{dep.name}}</option>
+      <option *ngFor="let dep of departamentos" [value]="dep.name">{{dep.name}}</option>
     </select>
   </label>
-  <label *ngIf="departamento">
+  <label>
     <span>Provincia:</span>
-    <select>
+    <select (change)="onProvincia($event.target.value)">
       <option disabled selected value> -- Selecciona una provincia -- </option>
-      <option *ngFor="let prov of filteredProvincias()" (click)="onProvincia(prov)">{{prov.name}}</option>
+      <option *ngFor="let prov of filteredProvincias()" [value]="prov.name">{{prov.name}}</option>
     </select>
   </label>
-  <label *ngIf="provincia">
+  <label>
     <span>Distrito:</span>
-    <select>
+    <select (change)="onDistrito($event.target.value)">
       <option disabled selected value> -- Selecciona un distrito -- </option>
-      <option *ngFor="let dist of filteredDistritos()" (click)="onDistrito(dist)">{{dist.name}}</option>
+      <option *ngFor="let dist of filteredDistritos()" [value]="dist.name">{{dist.name}}</option>
     </select>
   </label>
 </div>

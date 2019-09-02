@@ -6,10 +6,12 @@
     [departamentos]="departamentos"
     [provincias]="provincias"
     [distritos]="distritos"
+    (territoryInfo)="lookInMap($event)"
   ></app-territory-selection>
   <app-territory-chart [territory]="departamentos"></app-territory-chart>
   <h2>Provincias</h2>
   <app-territory-chart [territory]="provincias"></app-territory-chart>
   <h2>Distritos</h2>
   <app-territory-chart [territory]="distritos"></app-territory-chart>
+  <div #map style="width:100%;height:400px"></div>
 </div>
