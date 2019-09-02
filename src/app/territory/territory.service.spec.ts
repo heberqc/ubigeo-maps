@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { UbigeoService } from './ubigeo.service';
+import { TerritoryService } from './territory.service';
 
 describe('UbigeoService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: UbigeoService = TestBed.get(UbigeoService);
+    const service: TerritoryService = TestBed.get(TerritoryService);
     expect(service).toBeTruthy();
   });
 });

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { Territory } from '../../models/territory';
+import { Territory } from '../territory.model';
 
 @Component({
   selector: 'app-territory-selection',
@@ -11,7 +11,7 @@ export class TerritorySelectionComponent implements OnInit {
   @Input('departamentos') departamentos: Territory[];
   @Input('provincias') provincias: Territory[];
   @Input('distritos') distritos: Territory[];
-  @Output('territoryInfo') territoryInfo: EventEmitter<any> = new EventEmitter();  
+  @Output('territoryInfo') territoryInfo: EventEmitter<any> = new EventEmitter();
 
   departamento: string;
   provincia: string;

@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
-import { Territory } from '../models/territory';
+import { Territory } from './territory.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UbigeoService {
+export class TerritoryService {
   private api = 'https://gist.githubusercontent.com/heberqc/451b7ed0d56f37ddd56eb382470162ba/raw/ubigeos.txt';
 
   constructor(private http: HttpClient) { }

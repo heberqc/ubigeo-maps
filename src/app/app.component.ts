@@ -1,9 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import {} from 'googlemaps';
 
-import { UbigeoService } from './services/ubigeo.service';
+import { TerritoryService } from './territory/territory.service';
 
-import { Territory } from './models/territory';
+import { Territory } from './territory/territory.model';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +19,7 @@ export class AppComponent {
   provincias: Territory[];
   distritos: Territory[];
 
-  constructor(private ubigeo: UbigeoService) {
+  constructor(private ubigeo: TerritoryService) {
   }
 
   public ngOnInit(): void {
@@ -38,7 +38,7 @@ export class AppComponent {
       this.departamentos = departamentos;
       this.provincias = provincias;
       this.distritos = distritos;
-      }, 
+      },
       error => {
         console.error(error);
       }
