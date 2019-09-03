@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'ubigeo-icons';
+  src:  url('fonts/ubigeo-icons.eot?611hjv');
+  src:  url('fonts/ubigeo-icons.eot?611hjv#iefix') format('embedded-opentype'),
+    url('fonts/ubigeo-icons.ttf?611hjv') format('truetype'),
+    url('fonts/ubigeo-icons.woff?611hjv') format('woff'),
+    url('fonts/ubigeo-icons.svg?611hjv#ubigeo-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'ubigeo-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-document-table:before {
+  content: "\e900";
+}
+.icon-document-table1:before {
+  content: "\e901";
+}
+.icon-map:before {
+  content: "\e94b";
+}
+.icon-map2:before {
+  content: "\e94c";
+}
+.icon-search:before {
+  content: "\e986";
+}

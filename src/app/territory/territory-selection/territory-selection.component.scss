@@ -1,10 +1,12 @@
 div {
   display: flex;
-  flex-direction: column;
   margin: 8px;
+  flex-wrap: wrap;
 }
 
 label {
+  margin: 0 12px;
+  flex-grow: 1;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }

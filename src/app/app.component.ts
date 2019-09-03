@@ -18,8 +18,10 @@ export class AppComponent {
   departamentos: Territory[];
   provincias: Territory[];
   distritos: Territory[];
+  showTables: boolean;
 
   constructor(private ubigeo: TerritoryService) {
+    this.showTables = true;
   }
 
   public ngOnInit(): void {
@@ -55,5 +57,10 @@ export class AppComponent {
         alert('Geocode was not successful for the following reason: ' + status);
       }
     });
+  }
+
+  toogleTables() {
+    this.showTables = !this.showTables;
+    console.log('hola')
   }
 }

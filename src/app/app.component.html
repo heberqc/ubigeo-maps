@@ -1,13 +1,20 @@
 <header>
-  {{title}}
+  <span>
+    {{title}}
+  </span>
+  <div class="button" (click)="toogleTables()">
+    <i class="icon-document-table"></i>
+    <span>{{ showTables ? 'Ocultar' : 'Mostrar' }} tablas</span>
+  </div>
 </header>
+<app-territory-selection
+  class="select"
+  [departamentos]="departamentos"
+  [provincias]="provincias"
+  [distritos]="distritos"
+  (territoryInfo)="lookInMap($event)"></app-territory-selection>
 <div class="container">
-  <div class="mapInfo">
-    <app-territory-selection
-      [departamentos]="departamentos"
-      [provincias]="provincias"
-      [distritos]="distritos"
-      (territoryInfo)="lookInMap($event)"></app-territory-selection>
+  <div *ngIf="showTables" class="charts">
     <h2>Departamentos</h2>
     <app-territory-chart [territory]="departamentos"></app-territory-chart>
     <h2>Provincias</h2>
