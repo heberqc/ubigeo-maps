@@ -3,4 +3,11 @@ export interface Territory {
   name: string;
   parentCode: string;
   parentName: string;
+  type?: TerritoryType;
+}
+
+export enum TerritoryType {
+  Departamento,
+  Provincia,
+  Distrito,
 }

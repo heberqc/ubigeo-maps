@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
-import { Territory } from './territory.model';
+import { Territory, TerritoryType } from './territory.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,42 @@ export class TerritoryService {
 
   constructor(private http: HttpClient) { }
 
+  getTerritoryData(line: string): Territory {
+    const [
+      code_dep,
+      name_dep,
+      code_prov,
+      name_prov,
+      code_dis,
+      name_dis,
+    ] = line.match(/([0-9]{2,3}|[A-Za-z]+(\s[A-Za-z]+)*)/g);
+    if (code_dis) {
+      return ({
+        code: code_dis,
+        name: name_dis,
+        parentCode: code_prov,
+        parentName: name_prov,
+        type: TerritoryType.Distrito,
+      })
+    } else if (code_prov) {
+      return ({
+        code: code_prov,
+        name: name_prov,
+        parentCode: code_dep,
+        parentName: name_dep,
+        type: TerritoryType.Provincia,
+      })
+    } else if (code_dep) {
+      return ({
+        code: code_dep,
+        name: name_dep,
+        parentCode: '-',
+        parentName: '-',
+        type: TerritoryType.Departamento,
+      })
+    }
+  }
+
   getUbigeos() {
     return this.http.get(this.api, { responseType: 'text' }).pipe(
       map(data => {
@@ -20,39 +56,22 @@ export class TerritoryService {
         const distritos: Territory[] = [];
         // Divide data in lines
         const textLines = data.split('\n');
+        // Process lines
         textLines.forEach(line => {
-          // Retrieve territory data
-          const [
-            code_dep,
-            name_dep,
-            code_prov,
-            name_prov,
-            code_dis,name_dis
-          ] = line.match(/([0-9]{2,3}|[A-Za-z]+\s?[A-Za-z]+)/g);
-          // Arrays load
-          if (code_dis) {
-            distritos.push({
-              code: code_dis,
-              name: name_dis,
-              parentCode: code_prov,
-              parentName: name_prov,
-            })
-          } else if (code_prov) {
-            provincias.push({
-              code: code_prov,
-              name: name_prov,
-              parentCode: code_dep,
-              parentName: name_dep,
-            })
-          } else if (code_dep) {
-            departamentos.push({
-              code: code_dep,
-              name: name_dep,
-              parentCode: '-',
-              parentName: '-',
-            })
+          const territory = this.getTerritoryData(line);
+          switch (territory.type) {
+            case TerritoryType.Departamento:
+              departamentos.push(territory);
+              break;
+            case TerritoryType.Provincia:
+              provincias.push(territory);
+              break;
+            case TerritoryType.Distrito:
+              distritos.push(territory);
+              break;
           }
         })
+        // Send the parsed data
         return ({
           departamentos,
           provincias,
