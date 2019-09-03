@@ -15,12 +15,9 @@
   (territoryInfo)="lookInMap($event)"></app-territory-selection>
 <div class="container">
   <div *ngIf="showTables" class="charts">
-    <h2>Departamentos</h2>
-    <app-territory-chart [territory]="departamentos"></app-territory-chart>
-    <h2>Provincias</h2>
-    <app-territory-chart [territory]="provincias"></app-territory-chart>
-    <h2>Distritos</h2>
-    <app-territory-chart [territory]="distritos"></app-territory-chart>
+    <app-territory-chart [title]="'Departamentos'" [territory]="departamentos"></app-territory-chart>
+    <app-territory-chart [title]="'Provincias'" [territory]="provincias"></app-territory-chart>
+    <app-territory-chart [title]="'Distritos'" [territory]="distritos"></app-territory-chart>
   </div>
   <div #map id="map"></div>
 </div>

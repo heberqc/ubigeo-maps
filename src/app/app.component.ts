@@ -61,6 +61,5 @@ export class AppComponent {
 
   toogleTables() {
     this.showTables = !this.showTables;
-    console.log('hola')
   }
 }

@@ -9,6 +9,7 @@ import { Territory } from '../territory.model';
 })
 export class TerritoryChartComponent implements OnInit {
   @Input('territory') territory: Territory[];
+  @Input('title') title: string;
 
   constructor() { }
 
