@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/51cc70eb-9084-46bf-b31f-c1ed1da39055/deploy-status)](https://app.netlify.com/sites/focused-newton-8069eb/deploys)
+
 # Ubigeo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
