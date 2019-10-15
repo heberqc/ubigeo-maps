@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import {} from 'googlemaps';
 
 import { TerritoryService } from './territory/territory.service';
@@ -11,7 +11,7 @@ import { Territory } from './territory/territory.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChild('map', { static: true }) mapElement: any;
+  @ViewChild('map', { static: true }) mapElement: ElementRef;
   geocoder: google.maps.Geocoder;
   map: google.maps.Map;
   title = 'Ubigeos';
@@ -19,6 +19,11 @@ export class AppComponent {
   provincias: Territory[];
   distritos: Territory[];
   showTables: boolean;
+  // initial country
+  mapOptions: google.maps.MapOptions = {
+    center: new google.maps.LatLng(-12.046374, -77.042793),
+    zoom: 6,
+  };
 
   constructor(private ubigeo: TerritoryService) {
     this.showTables = true;
@@ -26,12 +31,15 @@ export class AppComponent {
 
   public ngOnInit(): void {
     this.loadUbigeoData();
-    // Show country
-    const mapProperties = {
-      center: new google.maps.LatLng(-12.046374, -77.042793),
-      zoom: 6,
-    };
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapProperties);
+    
+  }
+
+  ngAfterViewInit(): void {
+    this.mapInitializer();
+   }
+
+  mapInitializer() {
+    this.map = new google.maps.Map(this.mapElement.nativeElement, this.mapOptions);
   }
 
   public loadUbigeoData(): void {
