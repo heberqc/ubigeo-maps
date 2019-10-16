@@ -1,3 +1,10 @@
+:root {
+  --dark-color: #00796b;
+  --primary-color: #48a999;
+  --text-color: #fff;
+  --background-color: #e0f2f1;
+}
+
 *, *::after, *::before {
   font-size: 1rem;
   margin: 0;
@@ -7,3 +14,8 @@
 
 html, body { height: 100%; }
 body { font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+a {
+  text-decoration: none;
+  color: var(--dark-color);
+}

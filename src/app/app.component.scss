@@ -1,9 +1,9 @@
 header {
   padding: .5rem;
   width: 100%;
-  background-color: #00796b;
+  background-color: var(--dark-color);
   height: 2.5rem;
-  color: #fff;
+  color: var(--text-color);
   display: flex;
   justify-content: space-between;
 
@@ -13,7 +13,7 @@ header {
   }
 
   .button {
-    background-color: #48a999;
+    background-color: var(--primary-color);
     padding: 4px;
     border-radius: 4px;
     cursor: pointer;
@@ -38,13 +38,19 @@ header {
   align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
+  position: relative;
 
   .charts {
     padding: 2px 8px;
   }
 
+  .source {
+    position: absolute;
+    bottom: 4px;
+  }
+
   #map {
-    background-color: #e0f2f1;
+    background-color: var(--background-color);
     min-width: 33%;
     max-width: 100%;
     flex-grow: 1;
